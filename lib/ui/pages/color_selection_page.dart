@@ -21,14 +21,26 @@ class ColorSelectionPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Color palette app'),
           actions: [
-            IconButton(onPressed: showDialog, icon: Icon(Icons.info_outline))
+            IconButton(
+                onPressed: showDialog, icon: const Icon(Icons.info_outline))
           ],
         ),
         // https://colorhunt.co/
-        body: (const Center(
-          child: Text(
-              "SingleChildScrollView -> Column -> [ColorPalette, ColorPalette] "),
-        )));
+        body: (Center(
+            child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ColorPalette(
+                baseColor: "8BF5FA",
+                callback: showColor,
+              ),
+              ColorPalette(baseColor: "8BF5FA", callback: showColor),
+              ColorPalette(baseColor: "8BF5FA", callback: showColor),
+              ColorPalette(baseColor: "8BF5FA", callback: showColor),
+              ColorPalette(baseColor: "8BF5FA", callback: showColor)
+            ],
+          ),
+        ))));
   }
 
   // está es la función que será llamada con cada click a un ColorPalette
